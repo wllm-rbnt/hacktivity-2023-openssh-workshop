@@ -1,0 +1,13 @@
+########
+#### lab-server
+
+256 SHA256:oTpDJ2tRpPqpxFeMM6Qq46KKE1diYj70NabwdqNE1po root@lab-server (ECDSA)
+256 SHA256:YUlJN0NbpUr2I+5SIV1kxLjFlvcxY/V6xmBAixVBNkg root@lab-server (ED25519)
+3072 SHA256:5BuUd6dsRyaJedl02bvWGE5pEMFGrZL9Tf2Ts5w8M88 root@lab-server (RSA)
+
+########
+#### internal-machine
+256 SHA256:Nt9B2FbxX/FsQDzQosXhYHEWVd/SuZr4uZdoKhMs2lM root@internal-machine (ECDSA)
+256 SHA256:veaOA03tKtAIg5zPuUls/lqEwTpdNl7cwa7pIlAse/I root@internal-machine (ED25519)
+3072 SHA256:pSmsIIQ+X0h1wiIfOafmo3Tc+mEJM7SlWI5WRIHHUck root@internal-machine (RSA)
+
