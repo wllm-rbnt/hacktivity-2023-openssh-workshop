@@ -376,7 +376,7 @@ Setup:
  + Login to the remote server then copy your public key to the destination machine:
 
     (local)$ ssh hacktvtXX@lab-server
-    (remote)$ ssh-copy-id -i my-ssh-key.pub internal-machine
+    (remote)$ ssh-copy-id -f -i my-ssh-key.pub internal-machine
 
  + Connect to the remote machine with a single command:
 
@@ -492,7 +492,7 @@ Lab objective:
 * Create a TCP socket on *lab-server* on port 80XX and connect it to a locally listening `netcat` on TCP port 1234
 
 Setup:
-* Start a listening service on localhost on your local machine on TCP port 1234: `(local)$ nc -l -p 1234 127.0.0.1`
+* Start a listening service on localhost on your local machine on TCP port 1234: `(local)$ nc -l -p 1234`
 * Check that it's listening with `netstat`: `(local)$ netstat -tpln | grep 1234`
 
 * Configure the forwarding on TCP port 80XX while connecting to *lab-server* with *-R* parameter:
