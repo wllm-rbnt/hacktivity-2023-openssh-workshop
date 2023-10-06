@@ -1,11 +1,11 @@
 %title: Exploring OpenSSH: Hands-On Workshop for Beginners
 %author: William Robinet (Conostix S.A.)
-%date: 2023-10-05
+%date: 2023-10-05/06
 
 -> Exploring OpenSSH: Hands-On Workshop for Beginners <-
 =========
 -> William Robinet (Conostix S.A.) <-
--> 2023-10-05 <-
+-> 2023-10-05/06 <-
 
 -------------------------------------------------
 -> # About me <-
@@ -37,7 +37,7 @@ Slides URL:
 
 ## Attendees personal ID #
 
-20 ID numbers for the attendees, ranging from 00 to 19, are to be distributed and used for the labs
+20 ID numbers for the attendees, ranging from 01 to 20, are to be distributed and used for the labs
 Replace *XX* in commands where appropriate
 
 ## Shell commands
@@ -228,11 +228,11 @@ Hosts references can be stored as clear text (IP or hostname) or the correspondi
 Client:
     * Per-user client configuration: `~/.ssh/config`
     * System-wide client configuration: `/etc/ssh/ssh_config`
-    * System-wide local configuration: `/etc/ssh/ssh_config.d/*`
+    * System-wide local configuration: `/etc/ssh/ssh_config.d/*.conf`
 
 Server:
     * Server configuration: `/etc/ssh/sshd_config` 
-    * Server local configuration: `/etc/ssh/sshd_config.d/*` 
+    * Server local configuration: `/etc/ssh/sshd_config.d/*.conf`
 
 # Configuration options
 
@@ -322,6 +322,11 @@ The escape character can be used to pass *out-of-band* commands to `ssh` client
         User hacktvtXX
         IdentityFile ~/.ssh/my-ssh-key
 
+    * Now we can disabled password authentication on the server:
+
+    # echo PasswordAuthentication no > /etc/ssh/sshd_config.d/nopass.conf
+    # systemctl restart ssh
+
 -------------------------------------------------
 -> # Authentication Agent <-
 
@@ -350,7 +355,7 @@ need to enter passphrase at each use
 * Going further, [keychain](https://www.funtoo.org/Funtoo:Keychain) can be used to manage ssh-agent & keys across logins sessions
 
 -------------------------------------------------
--> # Jumphost <-
+-> # Jumphost (1/2) <-
 
 A jump host is a machine used as a *relay* to reach another, otherwise possibly
 unreachable, machine. This unreachable machine is named *internal-machine*
@@ -384,6 +389,14 @@ Setup:
 
 *Note*: *internal-machine* host key fingerprint available at
       `https://github.com/wllm-rbnt/hacktivity-2023-openssh-workshop/blob/master/fingerprints.txt`
+
+-------------------------------------------------
+-> # Jumphost (2/2) <-
+
+*Bonus*: you can chain jumphosts:
+
+    (local)$ ssh -J hacktvtXX@lab-server,hacktvtXX@internal-machine hacktvtXX@192.168.99.1
+
 
 -------------------------------------------------
 -> # SOCKS proxy <-
@@ -560,7 +573,7 @@ Setup:
 
 "debug1: send_pubkey_test: no mutual signature algorithm" (with `ssh -v`)
 
-    $ ssh -o PubkeyAcceptedAlgorithms=ssh-rsa <user>@<machine>
+    (local)$ ssh -o PubkeyAcceptedAlgorithms=ssh-rsa <user>@<machine>
 
 * Listing known public key sig algorithm: `(local)$ ssh -Q key-sig` or `(local)$ ssh -Q PubkeyAcceptedAlgorithms`
 
