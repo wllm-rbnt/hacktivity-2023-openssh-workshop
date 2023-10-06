@@ -581,7 +581,7 @@ Setup:
 -> # SSH Tarpit <-
 
 * The legitimate SSH server is running on port 22 on the remote server
-* `endlessh`, a simple honeypot, is running on port 2222 on the remote server for demonstration purpose
+* [endlessh](https://github.com/skeeto/endlessh), a simple honeypot, is running on port 2222 on the remote server for demonstration purpose
 * Try to connect to port 2222 with `ssh hacktvtXX@lab-server -p 2222`
 * Check both ports with `netcat`:
 
