@@ -56,16 +56,16 @@ Shell commands are prefixed by a prompt designating the machine on which the com
    │ ┌───────────────┐   │      │ ┌────────────┐          ┌──────────────────┐ │
    │ │ local machine │   │      │ │ lab-server │          │ internal-machine │ │
    │ └───────────────┘   │      │ └────────────┘          └──────────────────┘ │
-   │                     │      │  31.22.124.187                               │
+   │                     │      │  ##public IP##                               │
    │                     │      │  192.168.99.1            192.168.99.2        │
    └─────────────────────┘      └──────────────────────────────────────────────┘
 
 * *local machine* is your personal laptop or VM. It is located "somewhere on the Internet"
-    It should be able to reach *lab-server* (31.22.124.187) on TCP port 22 for the purpose of the labs
+    It should be able to reach *lab-server* (##public IP##) on TCP port 22 for the purpose of the labs
 
 * *Internal network* is a remote LAN
 
-* On this remote LAN, *lab-server* is publicly reachable through its IP address 31.22.124.187
+* On this remote LAN, *lab-server* is publicly reachable through its IP address ##public IP##
 
 * *lab-server* is connected to another machine named *internal-machine* on a private IP subnet (192.168.99.0/24)
 
@@ -74,10 +74,10 @@ Shell commands are prefixed by a prompt designating the machine on which the com
 
 ## Example: Telnet is not secure
 
-- A telnet server is listening on 31.22.124.187 IP, TCP port 23
+- A telnet server is listening on ##public IP## IP, TCP port 23
 - Run the client on your local machine:
 
-    (local)$ telnet 31.22.124.187
+    (local)$ telnet ##public IP##
 
 - Login, from *hacktvt01* to *hacktvt20*
 - Password, from *hacktvt01$$* to *hacktvt20$$*
@@ -173,8 +173,8 @@ Usernames and passwords are the same as the one from the telnet example:
 
 Type the following in a local terminal on your machine:
 
-    (local)$ ssh hacktvtXX@31.22.124.187
-    The authenticity of host '31.22.124.187 (31.22.124.187)' can't be established.
+    (local)$ ssh hacktvtXX@##public IP##
+    The authenticity of host '##public IP## (##public IP##)' can't be established.
     ECDSA key fingerprint is SHA256:oTpDJ2tRpPqpxFeMM6Qq46KKE1diYj70NabwdqNE1po.
     Are you sure you want to continue connecting (yes/no/[fingerprint])? 
 
@@ -251,7 +251,7 @@ Client configuration options can be specified per host
 Type following in your local `~/.ssh/config` where *XX* is your personal workshop ID #
 
     Host lab-server
-        Hostname 31.22.124.187
+        Hostname ##public IP##
         User hacktvtXX
 
 *Tips*: Printing the *"would be applied"* configuration
@@ -318,7 +318,7 @@ The escape character can be used to pass *out-of-band* commands to `ssh` client
     * Reference your key pair in your personal local configuration file (*~/.ssh/config*):
 
     Host lab-server
-        Hostname 31.22.124.187
+        Hostname ##public IP##
         User hacktvtXX
         IdentityFile ~/.ssh/my-ssh-key
 
@@ -585,12 +585,12 @@ Setup:
 * Try to connect to port 2222 with `ssh hacktvtXX@lab-server -p 2222`
 * Check both ports with `netcat`:
 
-    (local)$ nc -nv 31.22.124.187 22
-    (UNKNOWN) [31.22.124.187] 22 (ssh) open
+    (local)$ nc -nv ##public IP## 22
+    (UNKNOWN) [##public IP##] 22 (ssh) open
     SSH-2.0-OpenSSH_9.2p1 Debian-2
 
-    (local)$ nc -nv 31.22.124.187 2222
-    (UNKNOWN) [31.22.124.187] 2222 (?) open
+    (local)$ nc -nv ##public IP## 2222
+    (UNKNOWN) [##public IP##] 2222 (?) open
     >k*Z?NK>@h5xs#/OSF
     SU6Jv
     6%n[;
