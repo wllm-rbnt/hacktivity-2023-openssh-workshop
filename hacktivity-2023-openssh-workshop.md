@@ -14,8 +14,8 @@
 * CompSci studies, work in IT at [Conostix S.A.](https://www.conostix.com/) - AS197692
 * [ssldump](https://github.com/adulau/ssldump) improvements (build system, JSON output, IPv6 & ja3(s) support, ...)
 * [asn1template](https://github.com/wllm-rbnt/asn1template): painless ASN.1 editing
-
-🎸 🏃 🚵 🔭 ⏚
+* 🎸 🏃 🚵 🔭 ⏚
+* Contact: [@wr@infosec.exchange](https://infosec.exchange/@wr)
 
 -------------------------------------------------
 
