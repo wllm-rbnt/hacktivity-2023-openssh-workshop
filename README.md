@@ -1,3 +1,5 @@
+### A more recent version of this workshop is available [here](https://github.com/wllm-rbnt/confidence-2024-openssh-workshop) ###
+
 Use [mdp](https://github.com/visit1985/mdp) to render the presentation:
 
     $ sudo apt install mdp
